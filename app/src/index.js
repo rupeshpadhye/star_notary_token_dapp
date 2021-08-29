@@ -8,7 +8,6 @@ const App = {
 
   start: async function() {
     const { web3 } = this;
-    console.log(web3);
     try {
       // get contract instance
       const networkId = await web3.eth.net.getId();
@@ -36,7 +35,7 @@ const App = {
     const name = document.getElementById("starName").value;
     const id = document.getElementById("starId").value;
     await createStar(name, id).send({from: this.account});
-    App.setStatus("New Star Owner is " + this.account + ".");
+    App.setStatus("New Star Owner is " + this.account + ".","startStatus");
   },
 
   lookUp: async function (){

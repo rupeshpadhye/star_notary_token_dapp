@@ -108,3 +108,8 @@ create `.env` file
 - Name - Star Notary Token 2021
 - Symbol - SNT
 - address - https://rinkeby.etherscan.io/token/0x617753e6aa5bbdd23f3d5771c95efe3d6d0d083b
+
+### Version 
+Truffle v5.0.2 
+Solidity v0.5.0 
+OpenZeppelin 2.3.0

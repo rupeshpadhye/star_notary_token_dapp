@@ -21,6 +21,8 @@
  * phrase from a file you've .gitignored so it doesn't accidentally become public.
  *
  */
+ require('dotenv').config();
+ const HDWalletProvider = require("truffle-hdwallet-provider");
 
 // const HDWallet = require('truffle-hdwallet-provider');
 // const infuraKey = "fj4jll3k.....";
@@ -51,6 +53,14 @@ module.exports = {
       port: 9545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
     },
+    rinkeby: {
+      provider: function() {
+          return new HDWalletProvider(process.env["MNENOMIC"],
+          process.env["RINKEBY_CONTRACT_ADDRESS"]
+          )
+        },
+        network_id: '4',
+    }
 
     // Another network with more advanced options...
     // advanced: {

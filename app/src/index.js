@@ -8,26 +8,26 @@ const App = {
 
   start: async function() {
     const { web3 } = this;
-
+    console.log(web3);
     try {
       // get contract instance
       const networkId = await web3.eth.net.getId();
+      console.log(networkId);
       const deployedNetwork = starNotaryArtifact.networks[networkId];
       this.meta = new web3.eth.Contract(
         starNotaryArtifact.abi,
         deployedNetwork.address,
       );
-
       // get accounts
       const accounts = await web3.eth.getAccounts();
       this.account = accounts[0];
     } catch (error) {
-      console.error("Could not connect to contract or chain.");
+      console.error("Could not connect to contract or chain.",error);
     }
   },
 
-  setStatus: function(message) {
-    const status = document.getElementById("status");
+  setStatus: function(message,htmlID) {
+    const status = document.getElementById(htmlID);
     status.innerHTML = message;
   },
 
@@ -39,9 +39,26 @@ const App = {
     App.setStatus("New Star Owner is " + this.account + ".");
   },
 
-  // Implement Task 4 Modify the front end of the DAPP
   lookUp: async function (){
-    
+    let { lookUptokenIdToStarInfo } = this.meta.methods;
+    let { symbol } = this.meta.methods;
+    let { name } = this.meta.methods;
+    let id = document.getElementById("lookid").value;
+    id = parseInt(id);
+    let starName = await lookUptokenIdToStarInfo(id).call(); // call lookUptokenIdToStarInfo function within the contract
+    let contract = await name().call();
+    let sym = await symbol().call();
+    if (starName.length == 0){ // if starName is zero then no name exist and therefor not owned
+      App.setStatus("Star not owned.","status");
+      App.setStatus("Star ID: ","starData");
+      App.setStatus("Token Name: ","contract");
+      App.setStatus("Token Symbol: ","symbol");
+    }else{ // else its owned and displayed by passing tag ID to setStatus
+      App.setStatus("Star owned.","status");
+        App.setStatus("Star ID: "+id+" is named "+starName,"starData");
+        App.setStatus("Token Name: "+contract,"contract");
+        App.setStatus("Token Symbol: "+sym,"symbol");
+    }
   }
 
 };

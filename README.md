@@ -100,7 +100,10 @@ node index.js
 ```
 
 ### ENV variables 
-create `.env` file with `MNENOMIC` and `RINKEBY_CONTRACT_ADDRESS`
+create `.env` file 
+-  `MNENOMIC` - Metamask Seed  
+-  `RINKEBY_CONTRACT_ADDRESS`- Infura Project URL
+
 ### Token Info
 - Name - Star Notary Token 2021
 - Symbol - SNT

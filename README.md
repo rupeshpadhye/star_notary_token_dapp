@@ -1,4 +1,4 @@
-# ND1309 C2 Ethereum Smart Contracts, Tokens and Dapps - Project Starter 
+# ND1309 C2 Ethereum Smart Contracts, Tokens and Dapps 
 **PROJECT: Decentralized Star Notary Service Project** - For this project, you will create a DApp by adding functionality with your smart contract and deploy it on the public testnet.
 
 
@@ -100,8 +100,11 @@ node index.js
 ```
 
 ### ENV variables 
-create `.env` file with `MNENOMIC` and `RINKEBY_CONTRACT_ADDRESS`
+create `.env` file 
+-  `MNENOMIC` - Metamask Seed  
+-  `RINKEBY_CONTRACT_ADDRESS`- Infura Project URL
+
 ### Token Info
-Name - Star Notary Token 2021
-Symbol - SNT
-address - https://rinkeby.etherscan.io/token/0x617753e6aa5bbdd23f3d5771c95efe3d6d0d083b
+- Name - Star Notary Token 2021
+- Symbol - SNT
+- address - https://rinkeby.etherscan.io/token/0x617753e6aa5bbdd23f3d5771c95efe3d6d0d083b
